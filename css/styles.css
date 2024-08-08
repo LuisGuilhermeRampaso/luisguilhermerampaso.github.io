@@ -4,6 +4,7 @@
 }
 
 
+
 /* Reset */
 * {
   padding: 0;
@@ -26,6 +27,12 @@
 .highlight {
   color: var(--main-color);
 }
+
+.highlight-special {
+  color: #00ff6a; /* Cor laranja */
+}
+
+
 
 /* Containers */
 #container {

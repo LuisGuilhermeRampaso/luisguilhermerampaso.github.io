@@ -3,17 +3,69 @@
   font-size: 48px; /* Ajusta o tamanho do ícone se necessário */
 }
 
-#linux-icon {
-  color: #f5f5f5; /* Cor verde claro */
-  font-size: 48px; /* Ajusta o tamanho do ícone se necessário */
+
+/* Adicionando transições suaves */
+#bio-container * {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efeito para o bio-container quando o mouse passa sobre */
+#bio-container:hover {
+  transform: translateZ(10px); /* Move o container para frente */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para dar o efeito de profundidade */
+}
+
+/* Efeito para a imagem específica */
+#bio-image {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease; /* Transição suave */
+}
+
+#bio-image:hover {
+  transform: scale(1.1); /* Aumenta a imagem */
+}
+
+/* Efeito para o texto específico */
+#bio-container h2, #bio-container p {
+  transition: transform 0.3s ease;
+}
+
+#bio-container h2:hover, #bio-container p:hover {
+  transform: translateY(-5px); /* Move o texto para cima */
+}
+
+/* Efeito para os ícones de redes sociais e e-mail */
+#social-container a, #email-container a {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#social-container a:hover, #email-container a:hover {
+  transform: translateY(-5px); /* Move os ícones para cima */
+  color: #00ff6a; /* Muda a cor quando o mouse passa sobre */
+}
+
+#social-container a ion-icon, #email-container ion-icon {
+  transition: color 0.3s ease;
+}
+
+/* Efeito para o botão de projetos */
+#btn-projects {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#btn-projects:hover {
+  transform: translateY(-5px); /* Move o botão para cima */
+  background-color: transparent; /* Mantém a transparência de fundo ao passar o mouse */
+}
 
 /* Reset */
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', sans-serif; /* Atualizando a fonte para Poppins */
+  font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
 
@@ -30,6 +82,10 @@
 /* General */
 .highlight {
   color: var(--main-color);
+}
+
+.highlight-special {
+  color: #00ff6a; /* Cor laranja */
 }
 
 /* Containers */
@@ -73,6 +129,7 @@
   height: 175px;
   border-radius: 50%;
   margin-bottom: 25px;
+  transition: transform 0.3s ease; /* Transição suave */
 }
 
 #social-container {
@@ -92,6 +149,7 @@
 #social-container li a {
   color: var(--main-color);
   font-size: 30px;
+  transition: transform 0.3s ease; /* Transição suave */
 }
 
 #email-container {
@@ -108,6 +166,7 @@
   color: var(--main-text-color);
   text-decoration: none;
   max-width: 225px;
+  transition: color 0.3s ease; /* Transição suave */
 }
 
 #email-container ion-icon {
@@ -142,7 +201,7 @@
   border: 2px solid var(--main-color);
   border-radius: 5px;
   text-decoration: none;
-  transition: .5s;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Adicionando transição */
   margin: 25px 0;
   padding: 12px 10px;
   width: 150px;
@@ -161,7 +220,8 @@
 }
 
 #btn-projects:hover {
-  background-color: transparent;
+  transform: translateY(-5px); /* Move o botão para cima */
+  background-color: transparent; /* Mantém a transparência de fundo ao passar o mouse */
 }
 
 #skills-section-title {

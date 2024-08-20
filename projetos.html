@@ -11,8 +11,11 @@
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 <body>
+    <div id="blur-overlay"></div> <!-- Camada de desfoque -->
+
     <main id="container">
         <aside id="bio-container">
+            <a href="index.html">Voltar</a>
             <h2>Luís Guilherme Rampaso</h2>
             <img id="bio-image" src="img/profileimg.png" alt="Luís Rampaso">
             <p id="welcome-text">Projetos</p>
@@ -28,23 +31,112 @@
         <section id="projects-container">
             <h1 id="projects-title">Meus Projetos</h1>
             <div id="projects-carousel">
-                <div class="project-item">
-                    <img src="img/projeto1.png" alt="Projeto 1">
-                    <h3>FlaskAPI RESTful</h3>
+                <div class="project-item" onclick="toggleHighlight(this)">
+                    <div class="project-card">
+                        <div class="project-front">
+                            <img src="img/projeto1.png" alt="Projeto 1">
+                            <h3>API de Gestão de Usuários</h3>
+                        </div>
+                        <div class="project-back">
+                            <div class="title">FlaskAPI RESTful</div>
+                            <div class="content">
+                                <ul>
+                                    <li>Este projeto é uma API RESTful desenvolvida para gerenciar informações de usuários. A API permite operações básicas de CRUD (Create, Read, Update, Delete) para registros de usuários, oferecendo endpoints para a criação, leitura e atualização de dados de usuários. Utilizando o MongoDB como banco de dados, a API é configurada para trabalhar em um ambiente de desenvolvimento local com o mongomock, que simula um banco de dados MongoDB em memória para testes. A aplicação é construída com o Flask e é testada com o pytest para garantir a qualidade do código e a funcionalidade correta dos endpoints.</li>
+                                    
+                                </ul>
+                            </div>
+                            <h4>Tecnologias Utilizadas</h4>
+                            <div class="tech-icons">
+                                <i class="devicon-python-plain"></i>
+                                <i class="devicon-flask-plain"></i>
+                                <i class="devicon-docker-plain"></i>
+                                <i class="devicon-mongodb-plain"></i>
+                                <i class="devicon-heroku-plain"></i>
+                                <i class="devicon-github-plain"></i>
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-item">
-                    <img src="img/projeto2.png" alt="Projeto 2">
-                    <h3>Projeto 2</h3>
+                <div class="project-item" onclick="toggleHighlight(this)">
+                    <div class="project-card">
+                        <div class="project-front">
+                            <img src="img/projeto2.png" alt="Projeto 2">
+                            <h3>Projeto 2</h3>
+                        </div>
+                        <div class="project-back">
+                            <div class="title">Projeto 2</div>
+                            <div class="content">
+                                <ul>
+                                    <li>Descrição breve do projeto 2</li>
+                                    <li>Descrição breve do projeto 2</li>
+                                </ul>
+                            </div>
+                            <div class="tech-icons">
+                                <i class="devicon-python-plain"></i>
+                                <i class="devicon-flask-plain"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-item">
-                    <img src="img/projeto3.png" alt="Projeto 3">
-                    <h3>Projeto 3</h3>
+                <div class="project-item" onclick="toggleHighlight(this)">
+                    <div class="project-card">
+                        <div class="project-front">
+                            <img src="img/projeto3.png" alt="Projeto 3">
+                            <h3>Projeto 3</h3>
+                        </div>
+                        <div class="project-back">
+                            <div class="title">Projeto 3</div>
+                            <div class="content">
+                                <ul>
+                                    <li>Descrição breve do projeto 3</li>
+                                    <li>Descrição breve do projeto 3</li>
+                                </ul>
+                            </div>
+                            <div class="tech-icons">
+                                <i class="devicon-python-plain"></i>
+                                <i class="devicon-flask-plain"></i>
+                                <i class="devicon-mongodb-plain"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Adicione mais projetos aqui -->
+                <!-- Adicione mais cards conforme necessário -->
             </div>
         </section>
     </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function toggleHighlight(card) {
+            const items = document.querySelectorAll('.project-item');
+            const blurOverlay = document.getElementById('blur-overlay');
+
+            items.forEach(item => {
+                if (item !== card) {
+                    item.classList.remove('highlighted');
+                    item.querySelector('.project-card').classList.remove('flipped');
+                }
+            });
+
+            const isHighlighted = card.classList.toggle('highlighted');
+            card.querySelector('.project-card').classList.toggle('flipped');
+
+            // Mostra ou oculta a camada de desfoque
+            blurOverlay.style.display = isHighlighted ? 'block' : 'none';
+            
+            // Ajusta a rolagem e o ajuste da página para o card destacado
+            if (isHighlighted) {
+                document.body.style.overflow = 'hidden'; // Desativa a rolagem da página
+                document.getElementById('container').style.overflow = 'hidden'; // Desativa a rolagem do container
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100); // Adiciona um pequeno atraso para garantir que o card esteja visível
+            } else {
+                document.body.style.overflow = 'auto'; // Restaura a rolagem da página
+                document.getElementById('container').style.overflow = 'auto'; // Restaura a rolagem do container
+            }
+        }
+    </script>
 </body>
 </html>

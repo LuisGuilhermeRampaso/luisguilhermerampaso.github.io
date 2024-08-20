@@ -3,6 +3,10 @@
   font-size: 48px; /* Ajusta o tamanho do ícone se necessário */
 }
 
+#linux-icon {
+  color: #fcfcfc; /* Cor verde claro */
+  font-size: 48px; /* Ajusta o tamanho do ícone se necessário */
+}
 
 /* Adicionando transições suaves */
 #bio-container * {
